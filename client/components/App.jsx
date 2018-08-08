@@ -34,6 +34,17 @@ class App extends Component {
     )
   }
 
+  graphDisplay(status) {
+    switch(status) {
+      case 'received':
+        return <PopulationGraph />
+      case 'fetching':
+        return <h1>Fetching Data</h1>
+      case '':
+        return <h1>No data to show</h1>
+    }
+  }
+
   render() {
     return (
         <div className='app-container section'>
@@ -41,15 +52,13 @@ class App extends Component {
             <CountrySelect />}
           {this.props.fetchStatus.countries === 'received' &&
             <GlobeSelector />}
-          {(this.props.data.length == 0)
-            ? <h1>No data to show</h1>
-            : <PopulationGraph />}
+          {this.graphDisplay(this.props.fetchStatus.data)}
         </div>
 
     )
   }
 }
 
-const mapStateToProps = state => state
+const mapStateToProps = ({country, fetchStatus}) => ({country, fetchStatus})
 
 export default connect(mapStateToProps)(App)

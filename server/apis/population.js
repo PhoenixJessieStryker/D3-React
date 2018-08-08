@@ -32,10 +32,7 @@ function getDetailedByCountryFromXUntilY(country, startString, endString) {
       getDetailedByCountryInYear(country, year, results => { addYearToData(year, results, data) }))
     )
   )
-  .then(() => {
-    console.log('promise all resolving');
-    return data
-  })
+  .then(() => data)
 
   function addYearToData(year, results, dataSet) {
     dataSet[year] = results
@@ -54,7 +51,6 @@ function getTotalByCountryFromXUntilY(country, startString, endString) {
           const yearlyTotal = rawData[year].reduce((total, next) => total + Number(next.total), 0)
           return { year, population: yearlyTotal }
         })
-      console.log(country, listOfTotals[0]);
       return listOfTotals
     })
 }

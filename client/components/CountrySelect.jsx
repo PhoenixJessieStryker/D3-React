@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import {selectCountryAction} from '../actions/country'
 
 const CountrySelect = props => (
-  <select className='globe-select-2' name='countries' onChange={props.onChangeCountry} defaultValue={props.country}>
+  <select className='globe-select-2' name='countries' onChange={props.onChangeCountry}>
     {props.countryList.map(country => (
       <option key={country.id} value={country.id}>{country.name}</option>
     ))}
