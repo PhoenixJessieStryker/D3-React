@@ -1,9 +1,12 @@
 const conn = require('./connection')
+const {prepareForDB,parseFromDB} = require('../util/DBparser')
 
 function getAvailableDataForCountry (name, testDb) {
   const db = testDb || conn
   return db('population')
     .where({name})
+    .first()
+    .then(results => parseFromDB(results))
 }
 
 function injectData (parcel, testDb) {
@@ -20,16 +23,13 @@ function updateCountryData (parcel, testDb) {
   const db = testDb || conn
   return db('population')
     .where({name: parcel.name})
-    .update(parcel.years)
+    .update(prepareForDB(parcel))
 }
 
 function insertCountryData (parcel, testDb) {
   const db = testDb || conn
   return db('population')
-    .insert({
-      name: parcel.name,
-      ...parcel.years
-    })
+    .insert(prepareForDB(parcel))
 }
 
 function checkExists (name, testDb) {

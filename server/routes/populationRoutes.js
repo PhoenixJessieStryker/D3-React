@@ -2,11 +2,19 @@ const request = require('superagent')
 const router = require('express').Router()
 
 const pop = require('../apis/population')
+const popDB = require('../db/population')
+const { fetchAndInjectAll, fetchAndInjectMissing } = require('../util/cachemanager')
 
 router.get('/total/:country/:start/:end/', (req, res) => {
   const { country, start, end } = req.params
 
-  pop.getTotalByCountryFromXUntilY(country, start, end)
+  popDB.checkExists(country)
+    .then(exists => {
+      return (!exists)
+      ? fetchAndInjectAll(country, start, end)
+      : popDB.getAvailableDataForCountry(country)
+          .then(data => fetchAndInjectMissing(country, data, start, end))
+    })
     .then(data => { res.json(data) })
 })
 
