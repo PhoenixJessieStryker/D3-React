@@ -1,32 +1,14 @@
-### Why is there an issue in integrating D3 and React?
-
-Both D3 and React have their own built in methods for interacting directly with the DOM and only updating what is required. Things won't work if they both expect to have a full handle on the DOM, apparently there are several methods to get around this.
-
-### First Steps
-
-I'm using this boiler plate, which includes some stack parts I won't touch for now (redux) and following <a href="https://medium.com/@Elijah_Meeks/interactive-applications-with-react-d3-f76f7b3ebc71">this</a> tutorial to get a basic grip on how React and D3 can meet.
-
-This first approach has react managing the wider structure of the app, in a component where d3 is needed, an empty svg is created and d3 is passed a reference to the svg DOM-node, allowing it full reign over a limited part of the DOM, in this way they're both happy.
-
-The difficulty with this approach lies in communication between React and D3 about when to render, that's the key link
-<details>
-  <summary>
-    <b> Another method: re-Implementing D3 functions in react</b>
-  </summary>
-    <br>
-    <a href="https://medium.com/front-end-hacking/if-and-when-to-use-d3-js-with-react-639a651c6257">Here</a> is an example of     the other way of doing it, D3's power comes down partially to it's enter/update/exit suite, which allows it to check with     the DOM how many elements need creating, updating and deleting respectively as the data is altered.
-
-   This core functionality can be written into React, this kind of takes the teeth out of D3 in what is being asked to do but  fair enough. Often this is easier when the relationship between data and display is kept simple. For more advanced relationships, the first method of passing a node to D3 can be easier,
-
-~~maybe I'll try to implement both~~ - not interesting enough right now
-</details>
-
-#### More merging tactics: react-faux-dom
-
-This looks awesome and I think using it would help to understand rendering deeper. D3 and React are made to cooperate through a library <a href="https://github.com/Olical/react-faux-dom">react-faux-dom</a> which generates a dummy dom through react, passes this to D3, this allows full use of both libraries for animation (I don't quite get it at this stage). Perhaps the first method is simpler but this looks really interesting
+# Population since 1950
+This is a simple app that displays a graph of population of a given country since 1950. In the back there is serverside caching allowing minimal fetches to the API providing population data. There are some bugs
 
 
+## Globe Selector 
 
+This project makes use of a D3 project found <a href="http://bl.ocks.org/KoGor/5994804">here</a> licensed under <a href="https://choosealicense.com/licenses/mit/">MIT</a>, this code is coaxed to work with React and used as a Country Selector
+
+## React-faux-dom
+
+I'm using <a href="https://github.com/Olical/react-faux-dom">react-faux-dom</a> to integrate D3 into React
 
 ### Note Dump
 - Climate data to play with:
