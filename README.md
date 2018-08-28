@@ -8,7 +8,11 @@ This project makes use of a D3 project found <a href="http://bl.ocks.org/KoGor/5
 
 ## React-faux-dom
 
-I'm using <a href="https://github.com/Olical/react-faux-dom">react-faux-dom</a> to integrate D3 into React
+I'm using <a href="https://github.com/Olical/react-faux-dom">react-faux-dom</a> to integrate D3 into React. In their intended use D3 and React both seek exclusive management of the DOM. There are many ways around this, some involve reserving DOM management entirely for React, some black box an area of the DOM from Reacts perspective and allow D3 reign within. This package creates a second DOM-like object (essentially a second virtual DOM) which is handed to D3 to work with
+
+## The Data 
+
+Population data is being pulled from <a href="http://api.population.io">World Population API</a>. Data for select countries and regions is available from 1950 - 2018 and projected up to 2100
 
 ### Note Dump
 - Climate data to play with:

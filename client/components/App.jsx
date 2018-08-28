@@ -1,14 +1,8 @@
 import React, {Component} from 'react'
-import {HashRouter as Router, Route} from 'react-router-dom'
-
-import {getTotalByCountryFromXUntilY, getCountryList} from '../apis/population'
 
 import PopulationGraph from './PopulationGraph'
 import GlobeSelector from './GlobeSelector'
-import DisplayTemp from './DisplayTemp'
 import CountrySelect from './CountrySelect'
-
-import store from '../store'
 
 import {connect} from 'react-redux'
 

@@ -7,14 +7,15 @@
   "scripts": {
     "postinstall": "webpack",
     "dev": "nodemon --watch server & webpack --watch",
-    "start": "node server/index",
+    "start": "node server",
     "test": "jest",
     "watch": "nodemon -e js,jsx -x npm test",
     "h:deploy": "git push heroku master",
     "h:migrate": "heroku run knex migrate:latest",
     "h:rollback": "heroku run knex migrate:rollback",
     "h:seed": "heroku run knex seed:run",
-    "knex": "knex"
+    "knex": "knex",
+    "dbsetup": "knex migrate:latest"
   },
   "jest": {
     "collectCoverage": true
@@ -71,6 +72,7 @@
     "react-faux-dom": "^4.2.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.1.1",
+    "react-select": "^2.0.0",
     "react-test-renderer": "^15.5.4",
     "redux": "^3.6.0",
     "redux-mock-store": "^1.5.1",

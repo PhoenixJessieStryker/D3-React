@@ -21,7 +21,7 @@ function getDetailedByCountryFromXUntilY(country, startString, endString) {
   if (end <= start) throw new Error('bad request, end before start');
   if (end > 2100 || start < 1950) throw new Error('outside year range')
 
-  const years = Array(end - start)
+  const years = Array(end - start + 1)
     .fill(0)
     .map((el, i) => start + i)
 
@@ -63,11 +63,6 @@ function getCountryList(callback) {
       return res.body
     })
 }
-// getWorldPopulationRecordUntil(2000)
-//   .then(results => {
-//     console.log(results);
-//   })
-
 
 module.exports = {
   getDetailedByCountryInYear,

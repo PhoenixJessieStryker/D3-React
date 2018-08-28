@@ -118,24 +118,25 @@ class GlobeSelector extends Component {
 
 
       // hover on country info
-      world.on("mouseover", d => {
-          countryToolTip.text(countryById[d.id])
-          .style("left", (d3.event.pageX + 7) + "px")
-          .style("top", (d3.event.pageY - 15) + "px")
-          .style("display", "block")
-          .style("opacity", 1);
-          props.drawFauxDOM()
-        })
-        .on("mouseout", d => {
-          countryToolTip.style("opacity", 0)
-          .style("display", "none");
-          props.drawFauxDOM()
-        })
-        .on("mousemove", d => {
-          countryToolTip.style("left", (d3.event.pageX + 7) + "px")
-          .style("top", (d3.event.pageY - 15) + "px");
-          props.drawFauxDOM()
-        })
+      world
+        // .on("mouseover", d => {
+        //   countryToolTip.text(countryById[d.id])
+        //   .style("left", (d3.event.pageX + 7) + "px")
+        //   .style("top", (d3.event.pageY - 15) + "px")
+        //   .style("display", "block")
+        //   .style("opacity", 1);
+        //   props.drawFauxDOM()
+        // })
+        // .on("mouseout", d => {
+        //   countryToolTip.style("opacity", 0)
+        //   .style("display", "none");
+        //   props.drawFauxDOM()
+        // })
+        // .on("mousemove", d => {
+        //   countryToolTip.style("left", (d3.event.pageX + 7) + "px")
+        //   .style("top", (d3.event.pageY - 15) + "px");
+        //   props.drawFauxDOM()
+        // })
         .on("click", d => {
           handleCountryChange(countryById[Number(d.id)])
         });
