@@ -34,7 +34,7 @@ class App extends Component {
         return <PopulationGraph />
       case 'fetching':
         return <h1>Fetching Data</h1>
-      case '':
+      case '' || 'none':
         return <h1>No data to show</h1>
     }
   }

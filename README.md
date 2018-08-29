@@ -8,7 +8,7 @@ This project makes use of a D3 project found <a href="http://bl.ocks.org/KoGor/5
 
 ## React-faux-dom
 
-I'm using <a href="https://github.com/Olical/react-faux-dom">react-faux-dom</a> to integrate D3 into React. In their intended use D3 and React both seek exclusive management of the DOM. There are many ways around this, some involve reserving DOM management entirely for React, some black box an area of the DOM from Reacts perspective and allow D3 reign within. This package creates a second DOM-like object (essentially a second virtual DOM) which is handed to D3 to work with
+I'm using <a href="https://github.com/Olical/react-faux-dom">react-faux-dom</a> to integrate D3 into React. In their intended use D3 and React both seek exclusive management of the DOM. There a few ways around this, some involve reserving DOM management entirely for React, some black box an area of the DOM from Reacts perspective and allow D3 reign within. This package creates a second DOM-like object (essentially a second virtual DOM) which is handed to D3 to work with
 
 ## The Data 
 

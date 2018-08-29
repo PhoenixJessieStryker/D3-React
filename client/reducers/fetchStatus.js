@@ -25,6 +25,11 @@ export default function data(state = initialState, action) {
               data: 'received',
               countries: state.countries
             }
+        case 'NO_DATA':
+            return {
+              data: 'none',
+              countries: state.countries
+            }
         case 'CLOSE_GRAPH':
           return {
             data: '',
