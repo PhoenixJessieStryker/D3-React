@@ -5,7 +5,7 @@
   "repository": "https://github.com/harrison-symes/Bulma-Plates.git",
   "main": "server/index.js",
   "scripts": {
-    "postinstall": "webpack && knex migrate:latest",
+    "postinstall": "webpack",
     "dev": "nodemon --watch server & webpack --watch",
     "start": "node server",
     "test": "jest",
