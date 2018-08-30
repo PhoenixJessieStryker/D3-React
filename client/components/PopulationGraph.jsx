@@ -124,7 +124,7 @@ class PopulationGraph extends Component {
 
     return (
       <div className="container" >
-        <h1 className='title'>Population</h1>
+        <h1>Population</h1>
         {this.props.chart}
       </div>
     )

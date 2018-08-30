@@ -186,7 +186,7 @@ class GlobeSelector extends Component {
           projection.rotate(r(t));
           svg.selectAll("path.land")
             .attr("d", path)
-            .classed("focused", d => {
+            .classed("focused", (d, i) => {
               if (d.id == focusedCountry.id) {
                 let focused = d
                 this.setState({focused})
