@@ -108,6 +108,7 @@ class PopulationGraph extends Component {
     //  .text("Population");
 
     path.datum(data)
+      .attr('className', 'population-line')
       .attr('fill', 'none')
       .attr('stroke', 'steelblue')
       .attr("stroke-linejoin", "round")
